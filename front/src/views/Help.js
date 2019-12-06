@@ -17,15 +17,16 @@ class Help extends React.Component {
             category: '',
             loading: true,
             data: [
-                {firstName: 'Leo', lastName: 'Couffi', age: 12, flags: [], category: {link: './categories/sex.png', title: 'Vie étudiante et sexualité'}},
-                {firstName: 'Idoia', lastName: 'Reine à rien', age: 19, flags: [], category: {link: './categories/sex.png', title: 'Vie étudiante et sexualité'}},
-                {firstName: 'Nejma', lastName: 'Belkhanfar', age: 1, flags: [], category: {link: './categories/sex.png', title: 'Vie étudiante et sexualité'}},
+                {firstName: 'Leo', lastName: 'Couffi', age: 12, flags: [], category: {link: './categories/Sex.png', title: 'Vie étudiante et sexualité'}},
+                {firstName: 'Idoia', lastName: 'Reine à rien', age: 19, flags: [], category: {link: './categories/Budget.png', title: 'Budget'}},
+                {firstName: 'Nejma', lastName: 'Belkhanfar', age: 1, flags: [], category: {link: './categories/Sante.png', title: 'Santé'}},
             ],
-            item: {firstName: 'Leo', lastName: 'Couffi', age: 12, flags: ['./flags/195-france.png', './flags/191-tonga.png'], category: {link: './categories/sex.png', title: 'Vie étudiante et sexualité'}}
+            item: {firstName: 'Leo', lastName: 'Couffi', age: 12, flags: ['./flags/195-france.png', './flags/191-tonga.png'], category: {link: './categories/Sex.png', title: 'Vie étudiante et sexualité'}}
         };
 
         this._newMessenger = this._newMessenger.bind(this);
         this._getNext = this._getNext.bind(this);
+        this._selectCategory = this._selectCategory.bind(this);
     }
 
     componentDidMount() {
@@ -67,26 +68,30 @@ class Help extends React.Component {
       console.log("MESSENGER");
     };
 
+    _selectCategory = () => {
+
+    };
+
     render() {
         return (
             <div className="container">
                 <ul className="categories">
-                    <Category src={"./categories/Accessibilite.png"} name={"Accessibilité"}/>
-                    <Category src={"./categories/Budget.png"} name={"Budget"}/>
-                    <Category src={"./categories/Jobs.png"} name={"Jobs"}/>
-                    <Category src={"./categories/Logements.png"} name={"Logements"}/>
-                    <Category src={"./categories/Loisirs.png"} name={"Loisirs"}/>
-                    <Category src={"./categories/Sante.png"} name={"Santé"}/>
-                    <Category src={"./categories/Sex.png"} name={"Sexe"}/>
-                    <Category src={"./categories/Sport.png"} name={"Sport"}/>
+                    <Clickable keyCode={'a'} trigger={() => this._selectCategory()} content={<Category src={"./categories/Accessibilite.png"} name={"Accessibilité"}/>} />
+                    <Clickable keyCode={'b'} trigger={() => this._selectCategory()} content={<Category src={"./categories/Budget.png"} name={"Budget"}/>} />
+                    <Clickable keyCode={'c'} trigger={() => this._selectCategory()} content={<Category src={"./categories/Jobs.png"} name={"Jobs"}/>} />
+                    <Clickable keyCode={'d'} trigger={() => this._selectCategory()} content={<Category src={"./categories/Logements.png"} name={"Logements"}/>} />
+                    <Clickable keyCode={'e'} trigger={() => this._selectCategory()} content={<Category src={"./categories/Loisirs.png"} name={"Loisirs"}/>} />
+                    <Clickable keyCode={'g'} trigger={() => this._selectCategory()} content={<Category src={"./categories/Sante.png"} name={"Santé"}/>} />
+                    <Clickable keyCode={'h'} trigger={() => this._selectCategory()} content={<Category src={"./categories/Sex.png"} name={"Sexe"}/>} />
+                    <Clickable keyCode={'i'} trigger={() => this._selectCategory()} content={<Category src={"./categories/Sport.png"} name={"Sport"}/>} />
                 </ul>
                 <div className="tinder">
                     <div className="tinder__container">
                         <Tinder item={this.state.item}/>
-                        <Clickable keyCode={'b'} trigger={() => this._getNext()} content={<div className="arrow"/>} className={'tinder__next'}/>
+                        <Clickable keyCode={'j'} trigger={() => this._getNext()} content={<div className="arrow"/>} className={'tinder__next'}/>
                     </div>
                     <div className="ask-btn">
-                        <Clickable keyCode={'a'} trigger={() => this._newMessenger()} content={<button className="btn">Poser une question<FontAwesomeIcon icon={faPaperPlane}/></button>} />
+                        <Clickable keyCode={'k'} trigger={() => this._newMessenger()} content={<button className="btn">Poser une question<FontAwesomeIcon icon={faPaperPlane}/></button>} />
                     </div>
                 </div>
             </div>
