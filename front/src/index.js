@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom'
 import App from './views/App';
+import Categorie from './views/Categorie';
 import Profil from './views/Profil';
 import Help from './views/Help';
 import Notfound from "./views/NotFound";
@@ -31,6 +32,7 @@ class Index extends React.Component {
                     <Switch>
                         {/*<PrivateRoute exact activeClassName="active" path="/???" component={???}/>*/}
                         <Route exact activeClassName="active" path="/" component={App}/>
+                        <Route exact activeClassName="active" path="/categorie" component={Categorie}/>
                         <Route exact activeClassName="active" path="/profil" component={Profil}/>
                         <Route exact activeClassName="active" path="/help" component={Help}/>
                         {/*<Route activeClassName="active" path="/login" component={Login}/>*/}
