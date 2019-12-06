@@ -5,6 +5,10 @@ import Tinder from "../components/Tinder";
 import '../css/index.css';
 import Clickable from "../components/Clickable";
 
+import Category from "../components/Category";
+import {faPaperPlane} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
 class Help extends React.Component {
     constructor(props) {
         super(props);
@@ -13,9 +17,9 @@ class Help extends React.Component {
             category: '',
             loading: true,
             data: [
-                {firstName: 'Leo', lastName: 'Couffi', age: 12},
-                {firstName: 'Idoia', lastName: 'Reine à rien', age: 19},
-                {firstName: 'Nejma', lastName: 'Belkhanfar', age: 1},
+                {firstName: 'Leo', lastName: 'Couffi', age: 12, flags: []},
+                {firstName: 'Idoia', lastName: 'Reine à rien', age: 19, flags: []},
+                {firstName: 'Nejma', lastName: 'Belkhanfar', age: 1, flags: []},
             ],
             item: {firstName: 'Leo', lastName: 'Couffi', age: 12, flags: ['./flags/195-france.png', './flags/191-tonga.png']}
         };
@@ -25,7 +29,7 @@ class Help extends React.Component {
     }
 
     componentDidMount() {
-        this._fetch();
+        // this._fetch();
     }
 
     _fetch = () => {
@@ -51,6 +55,8 @@ class Help extends React.Component {
     };
 
     _getNext = () => {
+        if (this.state.count + 1 > this.state.data.length)
+            return;
         this.setState({
             count: this.state.count + 1,
             item: this.state.data[this.state.count],
@@ -63,17 +69,24 @@ class Help extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <ul className="categories">
-                    <li><img src={}></li>
+                    <Category src={"./categories/porte-monnaie.jpg"} name={"Bourse"}/>
+                    <Category src={"./categories/porte-monnaie.jpg"} name={"Bourse"}/>
+                    <Category src={"./categories/porte-monnaie.jpg"} name={"Bourse"}/>
+                    <Category src={"./categories/porte-monnaie.jpg"} name={"Bourse"}/>
+                    <Category src={"./categories/porte-monnaie.jpg"} name={"Bourse"}/>
+                    <Category src={"./categories/porte-monnaie.jpg"} name={"Bourse"}/>
+                    <Category src={"./categories/porte-monnaie.jpg"} name={"Bourse"}/>
+                    <Category src={"./categories/porte-monnaie.jpg"} name={"Bourse"}/>
                 </ul>
-                <div className="container">
+                <div className="tinder">
                     <div className="tinder__container">
                         <Tinder item={this.state.item}/>
-                        <Clickable keyCode={'b'} trigger={() => this._getNext()} content={<div className=""/>} className={'tinder__next'}/>
+                        <Clickable keyCode={'b'} trigger={() => this._getNext()} content={<div className="arrow"/>} className={'tinder__next'}/>
                     </div>
                     <div className="ask-btn">
-                        <Clickable keyCode={'a'} trigger={() => this._newMessenger()} content={<button className="btn">Poser une question</button>} />
+                        <Clickable keyCode={'a'} trigger={() => this._newMessenger()} content={<button className="btn">Poser une question<FontAwesomeIcon icon={faPaperPlane}/></button>} />
                     </div>
                 </div>
             </div>

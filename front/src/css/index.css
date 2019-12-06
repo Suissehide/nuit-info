@@ -1,13 +1,330 @@
+:root {
+    --color-white: white;
+    --color-black: black;
+    --color-pink: #D3568D;
+    --color-gray: #cccccc;
+}
+
+
+/*@font-face {*/
+/*  font-family: 'Montserrat';*/
+/*  font-style: normal;*/
+/*  font-weight: 400;*/
+/*  src: url('../assets/fonts/Montserrat/Montserrat-Regular.ttf');*/
+/*}*/
+
+@font-face {
+  font-family: 'Vcr';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/VCR_OSD_MONO_1.001.ttf');
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    overflow-x: hidden;
+    margin: 0;
+    min-height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f9fbfd;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+#root {
+    height: 100%;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+/**
+================ BUTTON ================
+ */
+
+.btn {
+    border: 1px solid var(--color-pink);
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--color-pink);
+    color: var(--color-white);
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    background-color: var(--color-white);
+    color: var(--color-pink);
+}
+
+.btn svg {
+  margin-left: 15px;
+}
+
+/**
+================ MAMIE ================
+ */
+
+.mamie {
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    padding: 4px;
+    background-color: yellow;
+    opacity: 0.8;
+    color: black;
+}
+
+/**
+================ HELP ================
+ */
+
+ul.categories {
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    border-right: 2px solid #cccccc;
+}
+
+ul.categories > li {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 20px;
+}
+
+ul.categories > li:hover {
+    background-color: var(--color-gray);
+}
+
+ul.categories > li > img {
+    width: 75px;
+    height: 75px;
+}
+
+ul li:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+ul li .tooltip {
+    display: inline-block;
+    position: absolute;
+    background-color: var(--color-gray);
+    color: var(--color-white);
+    padding: 8px 15px;
+    border-radius: 3px;
+    margin-top: 0px;
+    left: 130px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    white-space: pre;
+}
+
+ul li .tooltip:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -4px;
+    top: 10px;
+    transform: rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background-color: inherit;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+.ask-btn {
+    flex: 1;
+}
+
+.tinder {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+    width: calc(100% - 115px);
+    margin-left: 115px;
+}
+
+.tinder__container {
+    flex: 6;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.tinder__box {
+    display: flex;
+    flex-flow: column;
+    width: 400px;
+    height: 75%;
+    background-color: var(--color-pink);
+    border-radius: 15px;
+}
+
+.tinder__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.tinder__categorie {
+    flex: 1;
+}
+
+.tinder__profil {
+    display: flex;
+}
+
+.tinder__profil .profil-image {
+    margin-right: 10px;
+    background: center no-repeat;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.tinder__profil .profil-name {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.tinder__header .profil-language {
+    display: flex;
+    align-items: center;
+}
+
+.tinder__header .profil-language > img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.tinder__note {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.tinder__next {
+    cursor: pointer;
+    position: absolute !important;
+    height: 100px;
+    width: 100px;
+    right: 8%;
+    top: calc(50% - 50px);
+}
+
+div.arrow {
+  width: 6vmin;
+  height: 6vmin;
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: rotate(45deg);
+}
+div.arrow::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-width: 0.8vmin 0.8vmin 0 0;
+  border-style: solid;
+  border-color: #000;
+  transition: 0.2s ease;
+  display: block;
+  transform-origin: 100% 0;
+}
+div.arrow:after {
+  content: "";
+  float: left;
+  position: relative;
+  top: -91%;
+  width: 100%;
+  height: 91%;
+  border-width: 0 0.8vmin 0 0;
+  border-style: solid;
+  border-color: #000;
+  transform-origin: 100% 0;
+  transition: 0.2s ease;
+}
+div.arrow:hover::after {
+  transform: rotate(45deg);
+  border-color: var(--color-pink);
+  height: 120%;
+}
+div.arrow:hover::before {
+  border-color: var(--color-pink);
+  transform: scale(0.8);
+}
+
+/**
+================ 404 ================
+ */
+
+.container-404 {
+    font-family: Vcr, "Roboto", sans-serif;
+}
+
+.container-404 h1 {
+    font-size: 64px;
 }
