@@ -4,7 +4,10 @@ import '../css/index.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faStar} from '@fortawesome/free-solid-svg-icons'
 
-import avatar from '../assets/images/avatar.jpg';
+import avatar from '../assets/images/avatar/Avatar1.png';
+
+import bk from '../assets/images/Rank_BK.png';
+import w from '../assets/images/Rank_W.png';
 
 class Tinder extends React.Component {
     constructor(props) {
@@ -41,10 +44,18 @@ class Tinder extends React.Component {
                     </div>
                 </div>
                 <div className="tinder__categorie">
-
+                    <div className="tinder__category-img"><img src={process.env.PUBLIC_URL + this.props.item.category.link} alt={""}/></div>
+                    <div className="tinder__category-title">{this.props.item.category.title}</div>
                 </div>
                 <div className="tinder__note">
-                    <div className="tinder__like">3 / 5 <FontAwesomeIcon icon={faStar}/></div>
+                    <div className="tinder__like">
+                        Avis:
+                        <img src={bk} alt={""}/>
+                        <img src={bk} alt={""}/>
+                        <img src={bk} alt={""}/>
+                        <img src={bk} alt={""}/>
+                        <img src={w} alt={""}/>
+                    </div>
                 </div>
             </div>
         )

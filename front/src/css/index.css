@@ -1,8 +1,9 @@
 :root {
     --color-white: white;
     --color-black: black;
-    --color-pink: #D3568D;
+    --color-pink: #ff5252;
     --color-gray: #cccccc;
+    --color-blue: #03a9f4;
 }
 
 
@@ -14,10 +15,10 @@
 /*}*/
 
 @font-face {
-  font-family: 'Vcr';
+  font-family: 'Wonder';
   font-style: normal;
   font-weight: 400;
-  src: url('../assets/fonts/VCR_OSD_MONO_1.001.ttf');
+  src: url('../assets/fonts/8-BIT_WONDER.TTF');
 }
 
 *, :after, :before {
@@ -120,7 +121,7 @@ ul.categories {
     flex-flow: column;
     justify-content: space-evenly;
     height: 100vh;
-    border-right: 2px solid #cccccc;
+    border-right: 2px solid var(--color-blue);
 }
 
 ul.categories > li {
@@ -132,7 +133,7 @@ ul.categories > li {
 }
 
 ul.categories > li:hover {
-    background-color: var(--color-gray);
+    background-color: var(--color-blue);
 }
 
 ul.categories > li > img {
@@ -148,7 +149,7 @@ ul li:hover .tooltip {
 ul li .tooltip {
     display: inline-block;
     position: absolute;
-    background-color: var(--color-gray);
+    background-color: var(--color-blue);
     color: var(--color-white);
     padding: 8px 15px;
     border-radius: 3px;
@@ -206,7 +207,7 @@ ul li .tooltip:before {
     flex-flow: column;
     width: 400px;
     height: 75%;
-    background-color: var(--color-pink);
+    background-color: var(--color-white);
     border-radius: 15px;
 }
 
@@ -215,18 +216,26 @@ ul li .tooltip:before {
     justify-content: space-between;
     width: 100%;
     padding: 15px;
-    background-color: var(--color-white);
-    border: 1px solid var(--color-gray);
+    background-color: var(--color-pink);
+    border: 1px solid var(--color-pink);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
 .tinder__categorie {
     flex: 1;
+    border-left: 1px solid var(--color-gray);
+    border-right: 1px solid var(--color-gray);
+}
+
+.tinder__category-img > img {
+    height: 100px;
+    width: 100px;
 }
 
 .tinder__profil {
     display: flex;
+    color: var(--color-white);
 }
 
 .tinder__profil .profil-image {
@@ -235,6 +244,7 @@ ul li .tooltip:before {
     background-size: cover;
     height: 50px;
     width: 50px;
+    border: 2px solid var(--color-white);
     border-radius: 50%;
 }
 
@@ -247,22 +257,38 @@ ul li .tooltip:before {
 .tinder__header .profil-language {
     display: flex;
     align-items: center;
+
 }
 
 .tinder__header .profil-language > img {
-    width: 30px;
+    width: 40px;
     height: 30px;
     margin-right: 10px;
+    background-color: var(--color-white);
+    border-radius: 3px;
+    padding: 0 5px;
+
 }
 
 .tinder__note {
     display: flex;
     justify-content: space-between;
     padding: 15px;
-    background-color: var(--color-white);
-    border: 1px solid var(--color-gray);
+    background-color: var(--color-pink);
+    border: 1px solid var(--color-pink);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+.tinder__like {
+    display: flex;
+    align-items: center;
+    color: var(--color-white);
+}
+
+.tinder__like > img {
+    height: 30px;
+    width: 30px;
 }
 
 .tinder__next {
@@ -322,7 +348,7 @@ div.arrow:hover::before {
  */
 
 .container-404 {
-    font-family: Vcr, "Roboto", sans-serif;
+    font-family: Wonder, "Roboto", sans-serif;
 }
 
 .container-404 h1 {
