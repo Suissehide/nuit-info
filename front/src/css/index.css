@@ -398,6 +398,16 @@ div.arrow:hover::before {
     background-size: cover;
 }
 
+.container-404 .drop-container {
+    height: 100%;
+    width: 100%;
+}
+
+.drop {
+    position: absolute;
+    width: fit-content;
+}
+
 /**
 ================ CATEGORIE ================
  */
